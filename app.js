@@ -1,5 +1,5 @@
-/* Create a universal function that can accept an object as a parameter, and then create a logic to generate the single object output as 
- shown below */
+/* Create a universal function that can accept an object as a parameter, and then create a logic to 
+generate the single object output as shown below */
 
 // input
 var user = {
