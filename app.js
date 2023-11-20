@@ -25,16 +25,23 @@ var user = {
 // }
 
 function flatten (obj) {
-    let flattenObj = {}
-    for (let i in obj) {
+    let flattenObj = {} // Take an empty object to store the flatten object
+    for (let i in obj) { // for in loop is used for keys in an object
         if(typeof obj[i] == 'object') {
-            let temp = flatten(obj[i])
+            let temp = flatten(obj[i]) // Call flatten function recursively if a key contains an object
+          /* temp will contain an object like: {
+          main: "21",
+          cross: "32"
+          }
+          We need to append i i.e. "street_" as a prefix to all the keys
+          */
             for (let j in temp)
             flattenObj = {
                 ...flattenObj,
                 [`${i}_${j}`]: temp[j]
         }
     }
+          // If the key is not an object, store the key-value as it is
         else {
         flattenObj = {
             ...flattenObj,
@@ -42,9 +49,10 @@ function flatten (obj) {
         } 
     }
     }
+  // After the end of for in loop, return flattenObj
     return flattenObj;
 }
 
-let output = flatten({'user': user});
+let output = flatten({'user': user}); // Send {'user': user} as argument so that "user_" can be appended to each key as prefix
 
 console.log(output);
