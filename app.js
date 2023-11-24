@@ -56,3 +56,6 @@ function flatten (obj) {
 let output = flatten({'user': user}); // Send {'user': user} as argument so that "user_" can be appended to each key as prefix
 
 console.log(output);
+
+// Print comma separated values of object
+console.log(Object.keys(user).map(val=> user[val]).join(','))
